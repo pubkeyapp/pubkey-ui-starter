@@ -7,16 +7,14 @@ import { ClusterUiSelect } from './features/cluster/cluster-ui'
 import { DashboardFeature } from './features/dashboard/dashboard-feature'
 import { WalletIcon } from './features/solana/solana-provider'
 
-const AccountList = lazy(() => import('./features/account/account-list-feature'))
-const AccountDetail = lazy(() => import('./features/account/account-detail-feature'))
+const AccountList = lazy(() => import('./features/account/account-feature-list'))
+const AccountDetail = lazy(() => import('./features/account/account-feature-detail'))
 const ClusterFeature = lazy(() => import('./features/cluster/cluster-feature'))
 
 const links: UiHeaderLink[] = [
   { label: 'Dashboard', link: '/dashboard' },
   { label: 'Account', link: '/account' },
-  { label: 'Demo', link: '/demo' },
-  { label: 'Dev', link: '/dev' },
-  { label: 'Themes', link: '/themes' },
+  { label: 'Clusters', link: '/clusters' },
 ]
 const routes: RouteObject[] = [
   { path: '/', element: <Navigate to="/dashboard" replace /> },

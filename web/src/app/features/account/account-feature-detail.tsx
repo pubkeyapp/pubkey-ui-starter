@@ -9,7 +9,7 @@ import { ExplorerLink } from '../cluster/cluster-ui'
 
 import { AccountBalance, AccountButtons, AccountTokens, AccountTransactions, ellipsify } from './account-ui'
 
-export default function AccountDetailFeature() {
+export default function AccountFeatureDetail() {
   const params = useParams()
   const address = useMemo(() => {
     if (!params.address) {
