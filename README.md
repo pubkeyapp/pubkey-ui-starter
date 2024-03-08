@@ -56,6 +56,10 @@ pnpm lint
 pnpm test
 ```
 
+## Credits
+
+- Thanks to [opos-outliers](https://github.com/TipLink/opos-outliers) for open sourcing their project, which this project is based on. (MIT License Copyright (c) 2023 TipLink)
+
 ## License
 
 MIT

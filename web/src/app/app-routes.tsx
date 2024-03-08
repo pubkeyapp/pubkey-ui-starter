@@ -5,6 +5,7 @@ import { Link, Navigate, RouteObject, useRoutes } from 'react-router-dom'
 import { AppLayout } from './app-layout'
 import { ClusterUiSelect } from './features/cluster/cluster-ui'
 import { DashboardFeature } from './features/dashboard/dashboard-feature'
+import { OposOutliersFeature } from './features/opos-outliers/opos-outliers-feature'
 import { WalletIcon } from './features/solana/solana-provider'
 
 const AccountList = lazy(() => import('./features/account/account-feature-list'))
@@ -15,6 +16,7 @@ const links: UiHeaderLink[] = [
   { label: 'Dashboard', link: '/dashboard' },
   { label: 'Account', link: '/account' },
   { label: 'Clusters', link: '/clusters' },
+  { label: 'OPOS Outliers', link: '/opos-outliers' },
 ]
 const routes: RouteObject[] = [
   { path: '/', element: <Navigate to="/dashboard" replace /> },
@@ -22,6 +24,7 @@ const routes: RouteObject[] = [
   { path: '/account/:address', element: <AccountDetail /> },
   { path: '/clusters', element: <ClusterFeature /> },
   { path: '/dashboard', element: <DashboardFeature /> },
+  { path: '/opos-outliers', element: <OposOutliersFeature /> },
   { path: '*', element: <UiNotFound /> },
 ]
 
