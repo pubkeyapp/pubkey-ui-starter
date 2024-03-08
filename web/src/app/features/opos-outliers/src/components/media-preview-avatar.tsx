@@ -1,4 +1,4 @@
-import { AspectRatio, Avatar, Image } from '@mantine/core'
+import { Avatar } from '@mantine/core'
 
 export function MediaPreviewAvatar(props: { image: string | undefined }) {
   return (
@@ -10,16 +10,5 @@ export function MediaPreviewAvatar(props: { image: string | undefined }) {
       alt=""
       src={props.image || ''}
     />
-  )
-}
-
-export function MediaPreviewImage(props: { image?: string }) {
-  if (!props.image) {
-    return null
-  }
-  return (
-    <AspectRatio ratio={1}>
-      <Image alt="Avatar" radius="xl" src={props.image || ''} />
-    </AspectRatio>
   )
 }

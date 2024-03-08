@@ -5,25 +5,19 @@ import { useFetchable } from './use-fetchable'
 function useGenerateMediaFetch() {
   const endpoint = '/api/generate-image'
   return useMutation({
-    mutationFn: (payload: AttributesMap) => {
-      console.log({
-        endpoint,
-        payload,
-      })
-      return fetch(endpoint, {
+    mutationFn: (payload: AttributesMap) =>
+      fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(payload),
       }).then((res) => {
-        console.log('Response', res)
         if (!res.ok) {
           throw new Error('Failed to generate media')
         }
         return res.json()
-      })
-    },
+      }),
   })
 }
 
@@ -31,7 +25,8 @@ export function useGenerateMedia() {
   const [state, setState] = useFetchable<MediaResponse>()
 
   const mutation = useGenerateMediaFetch()
-  const tryGeneratePreview = async (payload: AttributesMap) => {
+
+  async function tryGeneratePreview(payload: AttributesMap) {
     // Always set loading true
     setState((prev) => ({
       ...prev,

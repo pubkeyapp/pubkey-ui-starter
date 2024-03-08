@@ -1,70 +1,7 @@
 import { MintConfig } from './types'
 
-const {
-  COLLECTION_MINT = '',
-  COLLECTION_METADATA_ACCOUNT = '',
-  COLLECTION_MASTER_EDITION_ACCOUNT = '',
-  SHADOW_ACCOUNT = '',
-  MERKLE_TREE = '',
-} = process.env
-
 const assetUrl = `/assets/attributes`
 export const config: MintConfig = {
-  metadata: {
-    name: 'OPOS Outliers',
-    description: 'Unlimited compressed NFT characters. Only possible on Solana, powered by TipLink.',
-    symbol: 'OPOSOUT',
-    external_url: 'https://opos.quest',
-    properties: {
-      files: [],
-      category: 'image',
-    },
-  },
-
-  // Hardcoded values that represent the production environment
-  productionEnvironment: {
-    payer: 'p7X5mwA9CKX6uZz4xwwD9Jqg3hUE9PWfgV3QBQsYfoh',
-    activeTree: 'tJTjTKqDdin8Xsjfb4Kx2vGcg1F7m19C53AUHnDcnCT',
-    trees: ['tL2TAswGPHjtCvxN9ez5y8TDrAU1Pxh8PEVmHC8tiyy', 'tJTjTKqDdin8Xsjfb4Kx2vGcg1F7m19C53AUHnDcnCT'],
-  },
-
-  // Based on local environment
-  tree: {
-    publicKey: MERKLE_TREE,
-    maxBufferSize: 64,
-    maxDepth: 17,
-    canopy: 8,
-  },
-
-  collection: {
-    collectionMint: COLLECTION_MINT,
-    collectionMetadataAccount: COLLECTION_METADATA_ACCOUNT,
-    collectionMasterEditionAccount: COLLECTION_MASTER_EDITION_ACCOUNT,
-    collectionMetadataUri:
-      'https://shdw-drive.genesysgo.net/7J165fhor8ysTfu46LiKG76gsLzG33coqZQLqhvJYESy/1691558993463.json',
-  },
-
-  storage: {
-    shadowAccount: SHADOW_ACCOUNT,
-  },
-
-  defaultAttributes: {
-    Background: 'Abstract',
-    'Skin Color': 'Human 1',
-    Face: 'Smile',
-    Head: 'TipLink Helmet',
-    Torso: 'TipLink Shirt',
-    Logo: 'TipLink',
-    Legs: 'TipLink Pants',
-    Feet: 'TipLink Shoes',
-  },
-
-  newAttributes: {
-    Background: ['DAA'],
-    Head: ['Dark Tippy', 'DAA', 'Samo', 'Bonk', 'Pony Tail 1', 'Pony Tail 2', 'Pony Tail 3', 'DAA', 'SMB'],
-    Logo: ['Helium', 'Metaplex', 'Solana', 'Solarplex', 'Logo', 'Drift', '3Land'],
-  },
-
   attributes: {
     Background: {
       Abstract: `${assetUrl}/Backgrounds/Abstract.png`,

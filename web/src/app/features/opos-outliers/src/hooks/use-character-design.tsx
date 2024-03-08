@@ -4,21 +4,14 @@ import React, { createContext, ReactNode, useContext, useEffect, useState } from
 import { config } from '../config'
 import { AttributesMap, MintConfig } from '../types'
 import { useGenerateMedia } from './use-generate'
-import { useMintStaged, useStageMint } from './use-mint'
 
 export type CharacterDesign = {
   config: MintConfig
-  mintState: any
-  stagedMintState: any
   attributeValuesMap: AttributesMap
   mediaState: any
-  showConfirmMint: boolean
-  isMinting: boolean
   setAttributeValue: (attributeName: string, newValue: string) => void
   generatePreview: () => void
   randomize: () => void
-  setShowConfirmMint: (value: boolean) => void
-  mint: () => void
 }
 export const CharacterDesignContext = createContext<CharacterDesign>(undefined!)
 
@@ -48,15 +41,7 @@ export function CharacterDesignProvider({ children }: { children: ReactNode; con
     Feet: 'TipLink Shoes',
   })
 
-  const [showConfirmMint, setShowConfirmMint] = useState(false)
-
-  const { stagedMintState, stageMint } = useStageMint()
-
-  const { mintState, mintStaged } = useMintStaged()
-
   const { mediaState, generatePreview } = useGenerateMedia()
-
-  const [isMinting, setIsMinting] = useState(false)
 
   const setAttributeValue = (attributeName: string, newValue: string) => {
     attributeValuesMap[attributeName] = newValue
@@ -74,14 +59,6 @@ export function CharacterDesignProvider({ children }: { children: ReactNode; con
     }
   }
 
-  const mint = async () => {
-    if (isMinting) {
-      return
-    }
-
-    console.log('Minting character...')
-  }
-
   const generate = () => generatePreview(attributeValuesMap)
 
   // Generate preview on attribute change
@@ -94,21 +71,13 @@ export function CharacterDesignProvider({ children }: { children: ReactNode; con
     config,
 
     // State
-    mintState,
-    stagedMintState,
     attributeValuesMap,
     mediaState,
-    showConfirmMint,
-    isMinting,
 
     // Actions
     setAttributeValue,
     generatePreview: generate,
     randomize,
-    setShowConfirmMint,
-
-    // Perform character mint
-    mint,
   }
 
   return <CharacterDesignContext.Provider value={value}>{children}</CharacterDesignContext.Provider>
