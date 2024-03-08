@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "dev:web": "nx run web:serve"
+    "build": "nx run web:build",
+    "dev": "nx run web:serve",
+    "lint": "nx run-many --target=lint --all",
+    "test": "nx run-many --target=test --all"
   },
   "private": true,
   "devDependencies": {
