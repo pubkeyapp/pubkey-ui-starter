@@ -62,7 +62,7 @@
     "@mantine/hooks": "^7.6.1",
     "@mantine/modals": "^7.6.1",
     "@mantine/notifications": "^7.6.1",
-    "@pubkey-ui/core": "^1.5.0",
+    "@pubkey-ui/core": "^1.6.0",
     "@pubkeyapp/wallet-adapter-mantine-ui": "^2.3.0",
     "@solana/spl-token": "^0.4.1",
     "@solana/wallet-adapter-base": "^0.9.23",
