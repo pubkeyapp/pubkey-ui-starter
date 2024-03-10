@@ -33,14 +33,30 @@ pnpm install
 
 ### Development
 
+Start the API app:
+
+```shell
+pnpm dev:api
+```
+
+Start the web app:
+
 ```sh
-pnpm dev
+pnpm dev:web
 ```
 
 ### Build
 
+Build the API app:
+
 ```sh
-pnpm build
+pnpm build:api
+```
+
+Build the web app:
+
+```sh
+pnpm build:wev
 ```
 
 ### Lint
@@ -54,6 +70,23 @@ pnpm lint
 
 ```sh
 pnpm test
+```
+
+## Add Anchor
+
+This project is compatible with the generators from [create-solana-dapp](https://npm.im/create-solana-dapp).
+
+You can use it to generate an Anchor application:
+
+```shell
+pnpm add -D @solana-developers/preset-anchor
+pnpm nx generate @solana-developers/preset-anchor:application anchor --dry-run
+```
+
+With this base set up, you can now add Anchor programs and tests to your project.
+
+```shell
+pnpm nx generate @solana-developers/preset-anchor:template --projectName anchor --directory anchor --template counter counter --dry-run
 ```
 
 ## License
