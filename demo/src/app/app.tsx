@@ -28,7 +28,7 @@ export function App() {
           path="/"
           element={
             <div>
-              <h2>Welcome to the Demo App!</h2>
+              <h2>Welcome to the Demo App! You have been blessed by alexperts you won</h2>
               <p>This is a simple change to demonstrate a commit.</p>
               This is the generated root route. <Link to="/page-2">Click here for page 2.</Link>
             </div>
