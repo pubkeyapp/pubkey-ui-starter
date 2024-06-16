@@ -1,34 +1,16 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "namedInputs": {
-    "default": ["{projectRoot}/**/*", "sharedGlobals"],
-    "production": ["default"],
-    "sharedGlobals": []
-  },
+  "namedInputs": { "default": ["{projectRoot}/**/*", "sharedGlobals"], "production": ["default"], "sharedGlobals": [] },
   "useInferencePlugins": false,
-  "nxCloudAccessToken": "NDc2MzhmYWMtMjgxNC00NzJiLWI3ZjQtZjliYmQwMDIzZGNifHJlYWQtd3JpdGU=",
+  "nxCloudAccessToken": "NDcwODdmM2EtMzk4Ni00YjhhLWE3NGEtMDgxYjI5NDlmNTdjfHJlYWQtd3JpdGU=",
   "generators": {
     "@nx/react": {
-      "application": {
-        "babel": true,
-        "style": "css",
-        "linter": "eslint",
-        "bundler": "webpack"
-      },
-      "component": {
-        "style": "css"
-      },
-      "library": {
-        "style": "css",
-        "linter": "eslint"
-      }
+      "application": { "babel": true, "style": "css", "linter": "eslint", "bundler": "webpack" },
+      "component": { "style": "css" },
+      "library": { "style": "css", "linter": "eslint" }
     }
   },
   "targetDefaults": {
-    "@nx/esbuild:esbuild": {
-      "cache": true,
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
-    }
+    "@nx/esbuild:esbuild": { "cache": true, "dependsOn": ["^build"], "inputs": ["production", "^production"] }
   }
 }
