@@ -8,3 +8,5 @@ tmp
 pnpm-lock.yaml
 .angular/cache
 
+
+/.nx/workspace-data
