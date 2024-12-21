@@ -1,6 +1,8 @@
+import { Anchor } from '@mantine/core'
+import { NotificationData } from '@mantine/notifications'
 import { toastError, toastSuccess } from '@pubkey-ui/core'
-import { useConnection, useWallet } from '@solana/wallet-adapter-react'
 import { TOKEN_2022_PROGRAM_ID, TOKEN_PROGRAM_ID } from '@solana/spl-token'
+import { useConnection, useWallet } from '@solana/wallet-adapter-react'
 import {
   Connection,
   LAMPORTS_PER_SOL,
@@ -13,8 +15,6 @@ import {
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 
 import { useCluster } from '../cluster/cluster-data-access'
-import { NotificationData } from '@mantine/notifications'
-import { Anchor } from '@mantine/core'
 
 export function useQueries({ address }: { address: PublicKey }) {
   const { connection } = useConnection()
@@ -27,7 +27,7 @@ export function useQueries({ address }: { address: PublicKey }) {
     },
     getSignatures: {
       queryKey: ['getSignatures', { endpoint: connection?.rpcEndpoint, address }],
-      queryFn: () => connection.getConfirmedSignaturesForAddress2(address),
+      queryFn: () => connection.getSignaturesForAddress(address),
     },
     getTokenAccounts: {
       queryKey: ['getTokenAccounts', { endpoint: connection?.rpcEndpoint, address }],
